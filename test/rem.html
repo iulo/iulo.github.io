@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>rem test</title>
+</head>
+<body>
+  <script>
+    var doc = window.document
+    var docEl = doc.documentElement
+    var ua = navigator.userAgent
+    var screenWidth = window.screen.width
+    var docElclientWidth = docEl.clientWidth
+    var initalDocElFontSize = docEl.style.fontSize
+    var computedDocElFontSize = window.getComputedStyle(docEl).fontSize
+
+    var div = doc.createElement('div')
+    div.setAttribute('style', 'width:1rem;display:none')
+    docEl.appendChild(div)
+    var OneRemTrueWidth = window.getComputedStyle(div).width
+    docEl.removeChild(div)
+
+    var txt = doc.createElement('div')
+    txt.setAttribute('style', 'width:100%; font-size:14px;')
+    txt.innerHTML = '<br>' +
+      'ua: ' + ua + '<br><br>' +
+      'screenWidth: ' + screenWidth + '<br><br>' +
+      'docElclientWidth: ' + docElclientWidth + '<br><br>' +
+      'initalDocElFontSize: ' + initalDocElFontSize + '<br><br>' +
+      'computedDocElFontSize: ' + computedDocElFontSize + '<br><br>' +
+      'OneRemTrueWidth: ' + OneRemTrueWidth + '<br><br>'
+
+      document.body.insertBefore(txt, document.body.firstChild)
+  </script>
+</body>
+</html>
