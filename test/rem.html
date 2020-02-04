@@ -7,32 +7,39 @@
   <title>rem test</title>
 </head>
 <body>
+  <div id="txt"></div>
   <script>
-    var doc = window.document
-    var docEl = doc.documentElement
-    var ua = navigator.userAgent
-    var screenWidth = window.screen.width
-    var docElClientWidth = docEl.clientWidth
-    var initialDocElFontSize = docEl.style.fontSize
-    var computedDocElFontSize = window.getComputedStyle(docEl).fontSize
+    function rem() {
+      var doc = window.document
+      var docEl = doc.documentElement
+      var ua = navigator.userAgent
+      var screenWidth = window.screen.width
+      var docElClientWidth = docEl.clientWidth
+      var initialDocElFontSize = docEl.style.fontSize
+      var computedDocElFontSize = window.getComputedStyle(docEl).fontSize
 
-    var div = doc.createElement('div')
-    div.setAttribute('style', 'width:1rem;display:none')
-    docEl.appendChild(div)
-    var OneRemTrueWidth = window.getComputedStyle(div).width
-    docEl.removeChild(div)
+      var div = doc.createElement('div')
+      div.setAttribute('style', 'width:1rem;')
+      docEl.appendChild(div)
+      var OneRemTrueWidth = window.getComputedStyle(div).width
+      var OneRemTrueClientWidth = div.clientWidth
+      docEl.removeChild(div)
 
-    var txt = doc.createElement('div')
-    txt.setAttribute('style', 'width:100%; font-size:14px;')
-    txt.innerHTML = '<br>' +
-      'ua: ' + ua + '<br><br>' +
-      'screenWidth: ' + screenWidth + '<br><br>' +
-      'docElClientWidth: ' + docElClientWidth + '<br><br>' +
-      'initialDocElFontSize: ' + initialDocElFontSize + '<br><br>' +
-      'computedDocElFontSize: ' + computedDocElFontSize + '<br><br>' +
-      'OneRemTrueWidth: ' + OneRemTrueWidth + '<br><br>'
+      var txt = document.getElementById('txt')
+      txt.setAttribute('style', 'width:100%; font-size:14px;')
+      txt.innerHTML = '<br>' +
+        'ua: ' + ua + '<br><br>' +
+        'screenWidth: ' + screenWidth + '<br><br>' +
+        'docElClientWidth: ' + docElClientWidth + '<br><br>' +
+        'initialDocElFontSize: ' + initialDocElFontSize + '<br><br>' +
+        'computedDocElFontSize: ' + computedDocElFontSize + '<br><br>' +
+        'OneRemTrueWidth: ' + OneRemTrueWidth + '<br><br>' +
+        'OneRemTrueClientWidth: ' + OneRemTrueClientWidth + '<br><br>'
 
       document.body.insertBefore(txt, document.body.firstChild)
+    }
+
+    rem()
   </script>
 </body>
 </html>
