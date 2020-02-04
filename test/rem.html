@@ -7,7 +7,17 @@
   <title>rem test</title>
 </head>
 <body>
-  <div id="txt"></div>
+  <div class="refs" style="font-size: 14px;">
+    <h3>CR-css-values-3-20190606</h3>
+    <p>rem unit</p>
+    <p>Equal to the computed value of font-size on the root element.</p>
+    <p>If used in the font-size property of the root element, or in a document with no root element, 1rem is equal to the initial value of the font-size property.</p>
+    <p>When used in the value of the font-size property on the element they refer to, these units refer to the computed font metrics of the parent element (or the computed font metrics corresponding to the initial values of the font property, if the element has no parent). When used outside the context of an element (such as in media queries), these units refer to the computed font metrics corresponding to the initial values of the font property.</p>
+  </div>
+  <div id="txt" style='width:100%; font-size:14px;'></div>
+  <div id="parent" style="width: 1rem; font-size: 1rem;">
+    <div id="child" style="width: 0.1rem; font-size: 0.1rem; padding: 0.1rem;"></div>
+  </div>
   <script>
     function rem() {
       var doc = window.document
@@ -18,25 +28,45 @@
       var initialDocElFontSize = docEl.style.fontSize
       var computedDocElFontSize = window.getComputedStyle(docEl).fontSize
 
-      var div = doc.createElement('div')
-      div.setAttribute('style', 'width:1rem;')
-      docEl.appendChild(div)
-      var OneRemTrueWidth = window.getComputedStyle(div).width
-      var OneRemTrueClientWidth = div.clientWidth
-      docEl.removeChild(div)
+      // var div = doc.createElement('div')
+      var parentDiv = document.getElementById('parent')
+      var childDiv = document.getElementById('child')
+      // var testDivStyle = 'box-sizing: border-box; width:1rem; font-size: 1rem; padding-left: 1rem;'
+      // div.setAttribute('style', testDivStyle)
+      // docEl.appendChild(div)
+      var parentDivComputedStyle = window.getComputedStyle(parentDiv)
+      var childDivComputedStyle = window.getComputedStyle(childDiv)
+      var oneRemTrueClientWidth = parentDiv.clientWidth
+      var oneRemTrueWidth = parentDivComputedStyle.width
+      var oneRemTrueFontSize = parentDivComputedStyle.fontSize
+      var oneRemTruePadding = parentDivComputedStyle.padding
+
+      var dotOneRemTrueWidth = childDivComputedStyle.width
+      var dotOneRemTrueFontSize = childDivComputedStyle.fontSize
+      var dotOneRemTruePadding = childDivComputedStyle.padding
+
+      // console.log(parentDivComputedStyle)
+      // console.log(childDivComputedStyle)
+      // docEl.removeChild(div)
 
       var txt = document.getElementById('txt')
-      txt.setAttribute('style', 'width:100%; font-size:14px;')
       txt.innerHTML = '<br>' +
         'ua: ' + ua + '<br><br>' +
         'screenWidth: ' + screenWidth + '<br><br>' +
         'docElClientWidth: ' + docElClientWidth + '<br><br>' +
         'initialDocElFontSize: ' + initialDocElFontSize + '<br><br>' +
         'computedDocElFontSize: ' + computedDocElFontSize + '<br><br>' +
-        'OneRemTrueWidth: ' + OneRemTrueWidth + '<br><br>' +
-        'OneRemTrueClientWidth: ' + OneRemTrueClientWidth + '<br><br>'
+        // 'testDivStyle: ' + testDivStyle + '<br><br>' +
+        'oneRemTrueClientWidth: ' + oneRemTrueClientWidth + '<br><br>' +
+        'oneRemTrueWidth: ' + oneRemTrueWidth + '<br><br>' +
+        'oneRemTrueFontSize: ' + oneRemTrueFontSize + '<br><br>' +
+        'oneRemTruePadding: ' + oneRemTruePadding + '<br><br>' + 
+        'dotOneRemTrueWidth: ' + dotOneRemTrueWidth + '<br><br>' +
+        'dotOneRemTrueFontSize: ' + dotOneRemTrueFontSize + '<br><br>' +
+        'dotOneRemTruePadding: ' + dotOneRemTruePadding + '<br><br>' + 
+        ''
 
-      document.body.insertBefore(txt, document.body.firstChild)
+      // document.body.insertBefore(txt, document.body.firstChild)
     }
 
     rem()
