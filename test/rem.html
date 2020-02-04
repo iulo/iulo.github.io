@@ -36,14 +36,14 @@
       // docEl.appendChild(div)
       var parentDivComputedStyle = window.getComputedStyle(parentDiv)
       var childDivComputedStyle = window.getComputedStyle(childDiv)
-      var oneRemTrueClientWidth = parentDiv.clientWidth
-      var oneRemTrueWidth = parentDivComputedStyle.width
-      var oneRemTrueFontSize = parentDivComputedStyle.fontSize
-      var oneRemTruePadding = parentDivComputedStyle.padding
+      var oneRemComputedClientWidth = parentDiv.clientWidth
+      var oneRemComputedWidth = parentDivComputedStyle.width
+      var oneRemComputedFontSize = parentDivComputedStyle.fontSize
+      var oneRemComputedPadding = parentDivComputedStyle.padding
 
-      var dotOneRemTrueWidth = childDivComputedStyle.width
-      var dotOneRemTrueFontSize = childDivComputedStyle.fontSize
-      var dotOneRemTruePadding = childDivComputedStyle.padding
+      var dotOneRemComputedWidth = childDivComputedStyle.width
+      var dotOneRemComputedFontSize = childDivComputedStyle.fontSize
+      var dotOneRemComputedPadding = childDivComputedStyle.padding
 
       // console.log(parentDivComputedStyle)
       // console.log(childDivComputedStyle)
@@ -57,13 +57,13 @@
         'initialDocElFontSize: ' + initialDocElFontSize + '<br><br>' +
         'computedDocElFontSize: ' + computedDocElFontSize + '<br><br>' +
         // 'testDivStyle: ' + testDivStyle + '<br><br>' +
-        'oneRemTrueClientWidth: ' + oneRemTrueClientWidth + '<br><br>' +
-        'oneRemTrueWidth: ' + oneRemTrueWidth + '<br><br>' +
-        'oneRemTrueFontSize: ' + oneRemTrueFontSize + '<br><br>' +
-        'oneRemTruePadding: ' + oneRemTruePadding + '<br><br>' + 
-        'dotOneRemTrueWidth: ' + dotOneRemTrueWidth + '<br><br>' +
-        'dotOneRemTrueFontSize: ' + dotOneRemTrueFontSize + '<br><br>' +
-        'dotOneRemTruePadding: ' + dotOneRemTruePadding + '<br><br>' + 
+        // 'oneRemComputedClientWidth: ' + oneRemComputedClientWidth + '<br><br>' +
+        'oneRemComputedWidth: ' + oneRemComputedWidth + '<br><br>' +
+        'oneRemComputedFontSize: ' + oneRemComputedFontSize + '<br><br>' +
+        'oneRemComputedPadding: ' + oneRemComputedPadding + '<br><br>' + 
+        'dotOneRemComputedWidth: ' + dotOneRemComputedWidth + '<br><br>' +
+        'dotOneRemComputedFontSize: ' + dotOneRemComputedFontSize + '<br><br>' +
+        'dotOneRemComputedPadding: ' + dotOneRemComputedPadding + '<br><br>' + 
         ''
 
       // document.body.insertBefore(txt, document.body.firstChild)
